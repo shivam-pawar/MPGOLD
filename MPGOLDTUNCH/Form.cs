@@ -16,6 +16,18 @@ namespace MPGOLDTUNCH
         {
             InitializeComponent();
             customerName.Focus();
+            SqlCommand cmd = new SqlCommand("select customer_name from customer_record", con);
+            con.Open();
+            SqlDataReader dr;
+            dr = cmd.ExecuteReader();
+            AutoCompleteStringCollection Collection = new AutoCompleteStringCollection();
+            while (dr.Read())
+            {
+                Collection.Add(dr.GetString(0));
+            }
+            customerName.AutoCompleteCustomSource = Collection;
+            dr.Close();
+            con.Close();
             string time = DateTime.Now.ToString("h:mm:ss tt");
             current_time.Text = time;
             refreshdata();
