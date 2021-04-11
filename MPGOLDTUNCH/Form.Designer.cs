@@ -330,6 +330,8 @@ namespace MPGOLDTUNCH
             // 
             // customerName
             // 
+            this.customerName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.customerName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.customerName.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.customerName.Location = new System.Drawing.Point(170, 30);
             this.customerName.Name = "customerName";
