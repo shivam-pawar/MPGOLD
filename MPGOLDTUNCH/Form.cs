@@ -55,31 +55,52 @@ namespace MPGOLDTUNCH
 
         private void gold_value_changed(object sender, EventArgs e)
         {
-            double gold_perent = double.Parse(gold.Text);
-            double silver_perent = double.Parse(silver.Text);
-            double cadmium_perent = double.Parse(cadmium.Text);
-            double zinc_perent = double.Parse(zinc.Text);
-            double iridium_perent = double.Parse(iridium.Text);
-            double ruthenium_perent = double.Parse(ruthenium.Text);
-            double osmium_perent = double.Parse(osmium.Text);
-            double nickel_perent = double.Parse(nickel.Text);
-            double tin_perent = double.Parse(tin.Text);
-            double lead_perent = double.Parse(lead.Text);
-            double platinum_perent = double.Parse(platinum.Text);
-            double rhodium_perent = double.Parse(rhodium.Text);
-            double iron_perent = double.Parse(iron.Text);          
-            double palladium_perent = double.Parse(palladium.Text);
-            double cobalt_perent = double.Parse(cobalt.Text);
-            double rhenium_perent = double.Parse(rhenium.Text);
-            double tungsten_perent = double.Parse(tungsten.Text);
-            double mangenese_perent = double.Parse(manganese.Text);
-            double bismuth_perent = double.Parse(bismuth.Text);
-            double karat_calculated = ((double)(gold_perent / 4.166666666666));
-            double copper_percent = ((double)(100.00 - gold_perent - silver_perent - cadmium_perent - zinc_perent - iridium_perent - ruthenium_perent - osmium_perent - nickel_perent - tin_perent - lead_perent - platinum_perent - rhodium_perent - iron_perent - palladium_perent - cobalt_perent - rhenium_perent - tungsten_perent - mangenese_perent - bismuth_perent));
-            copper.Text = ((double)(copper_percent)).ToString("0.00");
-            karat.Text = ((double)(karat_calculated)).ToString("0.00");
-            string time = DateTime.Now.ToString("h:mm:ss tt");
-            current_time.Text = time;
+            try
+            {
+                double gold_perent = double.Parse(gold.Text);
+                double silver_perent = double.Parse(silver.Text);
+                double cadmium_perent = double.Parse(cadmium.Text);
+                double zinc_perent = double.Parse(zinc.Text);
+                double iridium_perent = double.Parse(iridium.Text);
+                double ruthenium_perent = double.Parse(ruthenium.Text);
+                double osmium_perent = double.Parse(osmium.Text);
+                double nickel_perent = double.Parse(nickel.Text);
+                double tin_perent = double.Parse(tin.Text);
+                double lead_perent = double.Parse(lead.Text);
+                double platinum_perent = double.Parse(platinum.Text);
+                double rhodium_perent = double.Parse(rhodium.Text);
+                double iron_perent = double.Parse(iron.Text);
+                double palladium_perent = double.Parse(palladium.Text);
+                double cobalt_perent = double.Parse(cobalt.Text);
+                double rhenium_perent = double.Parse(rhenium.Text);
+                double tungsten_perent = double.Parse(tungsten.Text);
+                double mangenese_perent = double.Parse(manganese.Text);
+                double bismuth_perent = double.Parse(bismuth.Text);
+                double karat_calculated = 0;
+                try { karat_calculated = ((double)(gold_perent / 4.166666666666)); }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                double copper_percent = 0;
+                try
+                {
+                    copper_percent = ((double)(100.00 - gold_perent - silver_perent - cadmium_perent - zinc_perent - iridium_perent - ruthenium_perent - osmium_perent - nickel_perent - tin_perent - lead_perent - platinum_perent - rhodium_perent - iron_perent - palladium_perent - cobalt_perent - rhenium_perent - tungsten_perent - mangenese_perent - bismuth_perent));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + "Invalid Value entered");
+                }
+
+                copper.Text = ((double)(copper_percent)).ToString("0.00");
+                karat.Text = ((double)(karat_calculated)).ToString("0.00");
+                string time = DateTime.Now.ToString("h:mm:ss tt");
+                current_time.Text = time;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void search_customer_name(object sender, EventArgs e)
