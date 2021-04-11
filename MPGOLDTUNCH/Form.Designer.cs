@@ -217,7 +217,7 @@ namespace MPGOLDTUNCH
             this.button3.Size = new System.Drawing.Size(56, 33);
             this.button3.TabIndex = 25;
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.Preview);
             // 
             // button2
             // 
@@ -228,7 +228,7 @@ namespace MPGOLDTUNCH
             this.button2.Size = new System.Drawing.Size(56, 33);
             this.button2.TabIndex = 26;
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.SaveAndPrint);
             // 
             // current_time
             // 
@@ -804,7 +804,7 @@ namespace MPGOLDTUNCH
             this.button4.TabIndex = 5;
             this.button4.Text = "Reset";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.ResetForm);
             // 
             // search_date
             // 

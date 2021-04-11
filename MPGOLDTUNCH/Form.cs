@@ -32,7 +32,7 @@ namespace MPGOLDTUNCH
             dataGridRecords.DataSource = dt;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Preview(object sender, EventArgs e)
         {
             MPPrintPreviewDialog.Document = MPPrintDocument;
             MPPrintPreviewDialog.ShowDialog();
@@ -154,12 +154,12 @@ namespace MPGOLDTUNCH
             sampleType.Text = "Dhali";
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void ResetForm(object sender, EventArgs e)
         {
             refreshdata();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void SaveAndPrint(object sender, EventArgs e)
         {
             saveRecord();
             PrintDialog p1 = new PrintDialog();
